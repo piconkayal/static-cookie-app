@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"
+        integrity="sha512-OdkysyYNjK4CZHgB+dkw9xQp66hZ9TLqmS2vXaBrftfyJeduVhyy1cOfoxiKdi4/bfgpco6REu6Rb+V2oVIRWg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <h1>
+        This is a static template, there is no bundler or bundling involved!
+    </h1>
+
+    <button onclick="dummyGetCall()">Dummy Get</button>
+    <button onclick="dummyPostCall()">Dummy Post</button>
+
+    <script>
+        const instance = axios.create({
+            withCredentials: true
+        });
+
+        async function dummyGetCall() {
+            const response = await instance.get(
+                "https://express-cookie.onrender.com/info"
+            );
+            onsole.log(`response`, response);
+        }
+
+        async function dummyPostCall() {
+            const response = await instance.post(
+                "https://express-cookie.onrender.com/login"
+            );
+            onsole.log(`response`, response);
+        }
+    </script>
+</body>
+
+</html>
